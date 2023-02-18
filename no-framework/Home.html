@@ -13,16 +13,18 @@
         .column > p{
             width: 100%;
             text-align: center;
-
         }
         .heading-one{
-            font-size: 9em;
+            font-size: 6em;
         }
         .heading-two{
-            font-size: 9em;
+            font-size: 10em;
         }
         .heading-three{
-            font-size: 9em;
+            font-size: 4em;
+        }
+        .heading-four{
+            font-size: 7em;
         }
         .container{
             margin-top: 8px;
@@ -30,8 +32,24 @@
         .name{
             font-size: 2em;
         }
-        img{
-            border-radius: 8px;
+        .pic-container{
+            position: absolute;
+            z-index: -1;
+            background-color: rgb(145, 171, 171);
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .pic-container > img{
+            height: 700px;
+            width: 100%;
+        }
+        .column > .heading-four{
+            text-align: right;
+        }
+        .column > .heading-three{
+            text-align: left;
         }
     </style>
 
@@ -97,18 +115,42 @@
         </div>
       </nav>
 
+      <!-- container for picture on top of the page -->
+      <div class="pic-container">
+        <img src="https://thebudgetsavvybride.com/app/uploads/2020/08/wedding-budget-tips.jpeg.webp" alt="money picture">
+      </div>
+
     <div class="container">
+        <!-- row 1 -->
         <div class="columns">
-            <div class="column">
+            <div class="column is-one-forth">
                 <p class="heading-one">NO</p>
+            </div>
+            <div class="column is-one-forth">
+                <p class="heading-two">MORE</p>
+            </div>
+            <div class="column is-half">
+
+            </div>
+        </div>
+
+        <!-- row 2 -->
+        <div class="columns">
+            <div class="column is-one-forth">
                 <p class="heading-three">PINCHING</p>
             </div>
-            <div class="column">
-                <img src="https://images.pexels.com/photos/7459470/pexels-photo-7459470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="money picture">
+            <div class="column is-half">
+
             </div>
-            <div class="column">
-                <p class="heading-two">MORE</p>
+        </div>
+
+        <!-- row 3 -->
+        <div class="columns">
+            <div class="column is-half">
                 <p class="heading-four">PENNIES</p>
+            </div>
+            <div class="columng is-half">
+
             </div>
         </div>
     </div>
