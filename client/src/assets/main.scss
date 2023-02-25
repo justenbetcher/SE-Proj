@@ -8,4 +8,21 @@ $family-sans-serif: "Nunito", sans-serif;
 $primary: #0cc9d6;
 $box-radius: 100px;
 */
+
+$body-background-color: rgba(0, 0, 0, 0.7);
+
+/** 
+        HORIZONTAL AND VERTICAL CENTERING
+    this seems to mess up sizing but im not sure --jack
+*/
+.is-centered { 
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+
 @import 'bulma/bulma.sass';
