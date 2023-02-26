@@ -19,7 +19,19 @@
     transform: translate(-50%, -50%);
 }
 
+$primary: hsl(171, 100%, 41%);
+$info: hsl(204, 86%, 53%);
+$radius: 0px;
+$radius-large: 0px;
 
+$input-shadow: 0px;
+$input-focus-box-shadow-size: 0em;
+$input-border-color: $info;
+$input-focus-border-color: $info;
+$input-hover-border-color: $info;
+
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700'); //we need a better font
+$family-sans-serif: "Nunito", sans-serif;
 @import 'bulma/bulma.sass';
 
 .hero {
