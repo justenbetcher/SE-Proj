@@ -1,24 +1,19 @@
 @import '@fortawesome/fontawesome-free/css/all.css';
 
 /**
-    CHANGES TO BULMA  
-
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
-$family-sans-serif: "Nunito", sans-serif;
-$primary: #0cc9d6;
-$box-radius: 100px;
+    Let's use $primary as our primary color, $info as our secondary color, and $link for our 'other' color
+    We can change them here later.
 */
-
-$body-background-color: rgba(0, 0, 0, 0.7);
 
 /** 
         HORIZONTAL AND VERTICAL CENTERING
+    hero-body vertically centers its contents by default
     this seems to mess up sizing but im not sure --jack
 */
 .is-centered { 
     margin: 0;
     position: absolute;
-    top: 50%;
+    top: 50%; //not needed when in hero-body
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -26,3 +21,8 @@ $body-background-color: rgba(0, 0, 0, 0.7);
 
 
 @import 'bulma/bulma.sass';
+
+.hero {
+    background: linear-gradient(20deg, $info 0%, $primary 60%); 
+    //background: linear-gradient(105deg, $info 0%, $primary 40%, $info 80%);
+}
