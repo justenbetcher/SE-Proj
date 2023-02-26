@@ -34,7 +34,7 @@
         <div class="button is-light is-primary" @click="">go</div>
 
         <div class="container level-right">
-          <div class="button is-link is-underlined is-inverted" @click="">sign up</div>
+          <div class="button is-info is-underlined is-inverted" @click="">sign up</div>
         </div>
       </div>
   </main>
