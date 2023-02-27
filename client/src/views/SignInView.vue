@@ -29,9 +29,9 @@
 
 <template>
   <main>
-    <div class="div is-centered">
+    <div class="div is-absolute-centered">
       <div class="box">
-        <div class="buttons is-grouped is-left">
+        <div class="buttons is-grouped is-centered">
           <div class="button is-info" :class="{'is-inverted': joinUsTab}" @click="joinUsTab=false">Sign in</div>
           <div class="button is-info" :class="{'is-inverted': !joinUsTab}" @click="joinUsTab=true">Join us</div>
         </div>
@@ -57,7 +57,7 @@
             </div>
           </div>
 
-          <div class="buttons is-grouped is-right">
+          <div class="buttons is-grouped">
             <div class="button is-primary is-light is-fullwidth" @click="">Continue</div>
           </div>
         </div>
@@ -82,7 +82,7 @@
             </div>
           </div>
 
-          <div class="buttons is-grouped is-right">
+          <div class="buttons is-grouped">
             <div class="button is-primary is-light is-fullwidth" @click="">Continue</div>
           </div>
         </div>
