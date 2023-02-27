@@ -10,7 +10,7 @@
     hero-body vertically centers its contents by default
     this seems to mess up sizing but im not sure --jack
 */
-.is-centered { 
+.is-absolute-centered { 
     margin: 0;
     position: absolute;
     top: 50%; //not needed when in hero-body
