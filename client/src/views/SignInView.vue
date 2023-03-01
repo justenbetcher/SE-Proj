@@ -29,7 +29,7 @@
 
 <template>
   <main>
-    <div class="div is-absolute-centered">
+    <div class="div is-absolute-centered fades-in">
       <div class="box">
         <div class="buttons is-grouped is-centered">
           <div class="button is-info" :class="{'is-inverted': joinUsTab}" @click="joinUsTab=false">Sign in</div>
@@ -37,7 +37,7 @@
         </div>
       </div>
       <div class="box p-6">
-        <div v-if="!joinUsTab">
+        <div v-if="!joinUsTab" class="fades-in">
           <div class="subtitle has-text-info has-text-centered is-size-6"> {{ signInMessage }} </div>
           <!--
               sign in:
@@ -62,7 +62,7 @@
           </div>
         </div>
 
-        <div v-else>
+        <div v-else class="fades-in">
           <div class="subtitle has-text-info has-text-centered is-size-6"> {{ joinUsMessage }} </div>
           <!--
               join us:
