@@ -19,6 +19,15 @@
     transform: translate(-50%, -50%);
 }
 
+.fades-in {
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
 $primary: hsl(171, 100%, 41%);
 $info: hsl(204, 86%, 53%);
 $radius: 0px;
@@ -35,6 +44,6 @@ $family-sans-serif: "Nunito", sans-serif;
 @import 'bulma/bulma.sass';
 
 .hero {
-    background: linear-gradient(20deg, $info 0%, $primary 60%); 
+    background: linear-gradient(20deg, $info 15%, $primary 60%); 
     //background: linear-gradient(105deg, $info 0%, $primary 40%, $info 80%);
 }
