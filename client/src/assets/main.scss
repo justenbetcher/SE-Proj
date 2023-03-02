@@ -1,43 +1,32 @@
 @import '@fortawesome/fontawesome-free/css/all.css';
 
+.fades-in {
+    animation: fades-in-keyframes 0.8s;
+    animation-timing-function: ease;
+}
+
+@keyframes fades-in-keyframes {
+    0% {opacity: 0; transform: scale(0.75)}
+    100% {opacity: 1; transform: scale(1)}
+}
+
 /**
     Let's use $primary as our primary color, $info as our secondary color, and $link for our 'other' color
     We can change them here later.
 */
 
-/** 
-        HORIZONTAL AND VERTICAL CENTERING
-    hero-body vertically centers its contents by default
-    this seems to mess up sizing but im not sure --jack
-*/
-.is-absolute-centered { 
-    margin: 0;
-    position: absolute;
-    top: 50%; //not needed when in hero-body
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-
-.fades-in {
-    animation: fadeIn 1s;
-}
-
-@keyframes fadeIn {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
-}
-
 $primary: hsl(171, 100%, 41%);
 $info: hsl(204, 86%, 53%);
 $radius: 0px;
-$radius-large: 0px;
+$radius-large: 8px;
 
 $input-shadow: 0px;
 $input-focus-box-shadow-size: 0em;
-$input-border-color: $info;
-$input-focus-border-color: $info;
-$input-hover-border-color: $info;
+$input-border-color: $primary;
+$input-focus-border-color: $primary;
+$input-hover-border-color: $primary;
+
+$button-border-width: 0px;
 
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700'); //we need a better font
 $family-sans-serif: "Nunito", sans-serif;
@@ -46,4 +35,22 @@ $family-sans-serif: "Nunito", sans-serif;
 .hero {
     background: linear-gradient(20deg, $info 15%, $primary 60%); 
     //background: linear-gradient(105deg, $info 0%, $primary 40%, $info 80%);
+}
+
+.button.is-bg {
+    background: linear-gradient(20deg, $info 15%, $primary 60%); 
+}
+.button.is-bg:hover {
+    background: linear-gradient(200deg, $info 15%, $primary 60%); 
+    scale: 1.025;
+}
+
+.border-tab-active {
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    border-bottom: 2px solid $primary;
+}
+.hoverable:hover {
+    cursor: pointer;
 }
