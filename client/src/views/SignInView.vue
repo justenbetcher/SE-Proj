@@ -1,95 +1,48 @@
 <script setup lang="ts">
   import { ref } from 'vue';
 
-  //someone needs to come up with something less cringe
-  const signInMessages: String[] = [
-    "we're glad you're back",
-    "we missed you",
-    "uh-oh, what did you buy?",
-    "tell us your secrets",
-    "we need to see some ID"
-  ];
-  const joinUsMessages: String[] = [
-    "we'd be happy to have you",
-    "we are a perfect fit",
-    "yeehaw",
-    "tell us who you are"
-  ];
 
-  const signInMessage = signInMessages[Math.floor(Math.random() * signInMessages.length)];
-  const joinUsMessage = joinUsMessages[Math.floor(Math.random() * joinUsMessages.length)];
-
-  const joinUsTab = ref(true);
-
-  const signInUsername = ref("")
-  const signInPassword = ref("")
-  const joinUsUsername = ref("")
-  const joinUsPassword = ref("")
+  const joinUsTab = ref(false)
 </script>
 
 <template>
   <main>
-    <div class="div is-absolute-centered fades-in">
-      <div class="box">
-        <div class="buttons is-grouped is-centered">
-          <div class="button is-info" :class="{'is-inverted': joinUsTab}" @click="joinUsTab=false">Sign in</div>
-          <div class="button is-info" :class="{'is-inverted': !joinUsTab}" @click="joinUsTab=true">Join us</div>
-        </div>
+    <div class="columns">
+      <div class="column"></div>
+
+      <div class="column is-3">
+          <div class="box fades-in">
+
+            <div class="columns has-text-centered has-text-primary">
+              <div class="column">
+                <div class="hoverable" :class="{'border-tab-active': !joinUsTab}" @click="joinUsTab = false"> Sign in </div>
+              </div>
+              <div class="column">
+                <div class="hoverable" :class="{'border-tab-active': joinUsTab}" @click="joinUsTab = true"> Join us </div>
+              </div>
+              <div class="column"></div>
+
+            </div>
+
+              <div class="has-text-primary has-text-centered"> message </div>
+              <div class="field has-text-primary">
+                Email
+                <input class="input has-text-primary" type="" placeholder="">
+              </div>
+
+              <div class="field has-text-primary">
+                Password
+                <input class="input has-text-primary" type="password" placeholder="">
+              </div>
+
+
+              <div class="buttons is-grouped">
+                <div class="button is-bg is-fullwidth has-text-white" @click="">Continue</div>
+              </div>
+          </div>
       </div>
-      <div class="box p-6">
-        <div v-if="!joinUsTab" class="fades-in">
-          <div class="subtitle has-text-info has-text-centered is-size-6"> {{ signInMessage }} </div>
-          <!--
-              sign in:
-          -->
-
-          <div class="field">
-            <p class="has-text-primary">Username</p>
-            <div class="control">
-              <input class="input has-text-primary" type="text" placeholder="" v-model="signInUsername">
-            </div>
-          </div>
-
-          <div class="field">
-            <p class="has-text-primary">Password</p>
-            <div class="control">
-              <input class="input has-text-primary" type="password" placeholder="" v-model="signInPassword">
-            </div>
-          </div>
-
-          <div class="buttons is-grouped">
-            <div class="button is-primary is-light is-fullwidth" @click="">Continue</div>
-          </div>
-        </div>
-
-        <div v-else class="fades-in">
-          <div class="subtitle has-text-info has-text-centered is-size-6"> {{ joinUsMessage }} </div>
-          <!--
-              join us:
-          -->
-
-          <div class="field">
-            <p class="has-text-primary">Username</p>
-            <div class="control">
-              <input class="input has-text-primary" type="text" placeholder="" v-model="joinUsUsername">
-            </div>
-          </div>
-
-          <div class="field">
-            <p class="has-text-primary">Password</p>
-            <div class="control">
-              <input class="input has-text-primary" type="password" placeholder="" v-model="joinUsPassword">
-            </div>
-          </div>
-
-          <div class="buttons is-grouped">
-            <div class="button is-primary is-light is-fullwidth" @click="">Continue</div>
-          </div>
-        </div>
-      </div>
+      
+      <div class="column"></div>
     </div>
   </main>
 </template>
-
-<style>
-</style>
