@@ -8,7 +8,9 @@ import { RouterLink, RouterView } from 'vue-router'
     </div>
     
     <div class="hero-body">
-      <RouterView />
+      <div class="container">
+          <RouterView />
+      </div>
     </div>
 
     <div class="hero-foot">
