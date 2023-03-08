@@ -1,8 +1,15 @@
 <script setup lang="ts">
   import { ref } from 'vue';
 
+  import { addUser } from "../stores/users"
 
   const joinUsTab = ref(false)
+  const username = ref("")
+  const password = ref("")
+
+  function action() {
+    addUser(username.value, password.value)
+  }
 </script>
 
 <template>
@@ -26,18 +33,18 @@
 
               <div class="has-text-primary has-text-centered"> message </div>
               <div class="field has-text-primary">
-                Email
-                <input class="input has-text-primary" type="" placeholder="">
+                Username
+                <input class="input has-text-primary" type="" placeholder="" v-model.trim="username">
               </div>
 
               <div class="field has-text-primary">
                 Password
-                <input class="input has-text-primary" type="password" placeholder="">
+                <input class="input has-text-primary" type="password" placeholder="" v-model.trim="password">
               </div>
 
 
               <div class="buttons is-grouped">
-                <div class="button is-bg is-fullwidth has-text-white" @click="">Continue</div>
+                <div class="button is-bg is-fullwidth has-text-white" @click="action()">Continue</div>
               </div>
           </div>
       </div>
