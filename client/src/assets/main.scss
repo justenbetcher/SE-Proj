@@ -1,5 +1,9 @@
 @import '@fortawesome/fontawesome-free/css/all.css';
 
+.is-invisible {
+    opacity: 0;
+}
+
 .fades-in {
     animation: fades-in-keyframes 0.8s;
     animation-timing-function: ease;
