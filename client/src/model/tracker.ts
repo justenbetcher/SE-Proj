@@ -19,5 +19,10 @@ export function useTracker() {
 }
 
 export function setEntry() {
-    tracker.value.entry = {} as Entry ?? null;
+    tracker.value.entry = {} as Entry;
 }
+
+export function toItemArray(x: string) {
+    tracker.value.entry!.items = x.split(', ');
+}
+

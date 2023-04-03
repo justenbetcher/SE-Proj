@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useTracker, setEntry } from '@/model/tracker';
+import { ref } from 'vue';
 
     const track = useTracker();
     setEntry();
@@ -13,23 +14,37 @@ import { useTracker, setEntry } from '@/model/tracker';
         'Personal & Family Care',
         'Health',
         'Finace'
-    ] 
+    ]
+
+    const items = ref<string>('');
+    const prices = ref<string>('');
 
 </script>
 <template>
     <div class="container" v-if="track.entry">
         <div class="box">
-        <h1 class="title">Enter your recent payment</h1>
+            <h1 class="title">Enter your recent payment</h1>
 
-        <div class="control">
-            <label class="radio" v-for="category, i in categories">
-                <input type="radio" name="category"  v-bind:value="category"  v-model="track.entry.category">
-                {{ category }}
-            </label>
+            <p class="field">What category does your purchase fall under?</p>
+            <ol class="control">
+                <li v-for="category, i in categories">
+                    <label class="radio">
+                        <input type="radio" name="category"  v-bind:value="category"  v-model="track.entry.category">
+                        {{ category }}
+                    </label>
+                </li>
+            </ol>
+            
+
+            <p class="field">Enter items here (seperated by a comma ',')</p>
+            <textarea class="textarea" placeholder="items here" v-model="items"></textarea>
+
+            <p class="field">Enter prices here (seperated by a comma ',')</p>
+            <textarea class="textarea" placeholder="items here" v-model="prices"></textarea>
+
+
+            <p>{{ track.entry.category }}, {{ items }}</p>
         </div>
-
-        <p>{{ track.entry.category }}</p>
-    </div>
     </div>
 </template>
 
