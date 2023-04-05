@@ -16,8 +16,7 @@ import { ref } from 'vue';
         'Finace'
     ]
 
-    const items = ref<string>('');
-    const prices = ref<string>('');
+    
 
 </script>
 <template>
@@ -36,14 +35,12 @@ import { ref } from 'vue';
             </ol>
             
 
-            <p class="field">Enter items here (seperated by a comma ',')</p>
-            <textarea class="textarea" placeholder="items here" v-model="items"></textarea>
-
-            <p class="field">Enter prices here (seperated by a comma ',')</p>
-            <textarea class="textarea" placeholder="items here" v-model="prices"></textarea>
+            <p class="field">Description of your purchase</p>
+            <textarea class="textarea" placeholder="description" v-model="track.entry.description"></textarea>
 
 
-            <p>{{ track.entry.category }}, {{ items }}</p>
+
+            <p>{{ track.entry.category }}, {{ track.entry.description }}</p>
         </div>
     </div>
 </template>
