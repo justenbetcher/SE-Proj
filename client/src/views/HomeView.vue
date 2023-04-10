@@ -20,7 +20,7 @@
 
       <div class="column is-4">
         <div class="box fades-in">
-          <div class="has-text-primary has-text-centered"> You are signed in as: {{ password }} with the password {{ username }} </div>
+          <div class="has-text-primary has-text-centered"> You are signed in as {{ username }} with the password {{ password }} </div>
 
           <div class="buttons is-grouped">
             <div class="button is-bg is-fullwidth has-text-white" @click="signOut()">Sign Out</div>
