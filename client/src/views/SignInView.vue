@@ -24,6 +24,10 @@
         addUser(username.value, password.value).then(result => {
           if (!result) {
             userExisting.value = true
+          } else {
+            username.value = ""
+            password.value = ""
+            confirmPassword.value = ""
           }
         })
       } else {
@@ -34,6 +38,8 @@
         if (result === null) {
           invalidSignIn.value = true
         } else {
+          username.value = ""
+          password.value = ""
           session.user = result;
           router.push("/home")
         }
