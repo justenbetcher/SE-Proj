@@ -3,8 +3,17 @@ const users = require('../models/users');
 
 const app = express.Router();
 app
-    .post('/:username/:password', (req, res, next) => {
-        res.send(users.addUser(req.params.username, req.params.password))
+    .patch('/:username/:password', (req, res, next) => {
+        users.addUser(req.params.username, req.params.password).then(result => res.status(200).send(result))
+    })
+    .patch('/:username', (req, res, next) => {
+        users.getUser(req.params.username).then(user => {
+            if (user) {
+                res.status(200).send(user)
+            } else {
+                res.status(200).send(null)
+            }  
+        })
     })
 
 module.exports = app;

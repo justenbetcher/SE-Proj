@@ -1,6 +1,7 @@
 //import router from "@/router";
 import fetchV2 from "@/services/fetchV2";
 import { reactive } from "vue";
+import type { User } from "./users";
 
 export interface Message {
     text: string;
@@ -11,6 +12,7 @@ const session = reactive({
     loading: 0,
     error: null as string | null,
     messages: [] as Message[],
+    user: null as User | null
 });
 
 
@@ -32,6 +34,7 @@ export async function api<T>(url: string, data: any = null, method?: string) {
       session.loading--;
   
     }
+
     return {} as T;
 }
 

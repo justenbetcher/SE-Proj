@@ -15,16 +15,20 @@ async function getUser(username) {
 
 async function addUser(username, password) {
     const db = await collection()
+    let result = false;
     await getUser(username).then((user) => {
         if (user) {
-            //dont insert            
+            //dont insert  
         } else {
             db.insertOne({
                 "username": username
                 ,"password": password
             })
+            result = true;
         }
     })
+
+    return result;
 }
 
 module.exports = {
