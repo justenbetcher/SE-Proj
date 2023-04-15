@@ -23,6 +23,7 @@ async function addUser(username, password) {
             db.insertOne({
                 "username": username
                 ,"password": password
+                ,"budgets": []
             })
             result = true;
         }
