@@ -50,49 +50,43 @@
 
 <template>
   <main>
-    <div class="columns">
-      <div class="column"></div>
+    <div class="box fades-in">
 
-      <div class="column is-4">
-          <div class="box fades-in">
+      <div class="columns has-text-centered has-text-primary">
+        <div class="column">
+          <div class="hoverable" :class="{'border-tab-active': !joinUsTab}" @click="joinUsTab = false"> Sign in </div>
+        </div>
+        <div class="column">
+          <div class="hoverable" :class="{'border-tab-active': joinUsTab}" @click="joinUsTab = true"> Join us </div>
+        </div>
+        <div class="column"></div>
 
-            <div class="columns has-text-centered has-text-primary">
-              <div class="column">
-                <div class="hoverable" :class="{'border-tab-active': !joinUsTab}" @click="joinUsTab = false"> Sign in </div>
-              </div>
-              <div class="column">
-                <div class="hoverable" :class="{'border-tab-active': joinUsTab}" @click="joinUsTab = true"> Join us </div>
-              </div>
-              <div class="column"></div>
-
-            </div>
-
-              <div class="field has-text-primary">
-                Username
-                <input class="input has-text-primary" type="" placeholder="" v-model.trim="username">
-              </div>
-
-              <div class="field has-text-primary">
-                Password
-                <input class="input has-text-primary" type="password" placeholder="" v-model.trim="password">
-              </div>
-
-              <div v-if="joinUsTab" class="field has-text-primary">
-                Confirm Password
-                <input class="input has-text-primary" type="password" placeholder="" v-model.trim="confirmPassword">
-              </div>         
-              
-              <div v-if="nonmatchingPassword && joinUsTab" class="has-text-danger has-text-centered"> Passwords dont match! </div>
-              <div v-if="userExisting && joinUsTab" class="has-text-danger has-text-centered"> Username taken! </div>
-              <div v-if="invalidSignIn && !joinUsTab" class="has-text-danger has-text-centered"> Sign in failed! </div>
-
-              <div class="buttons is-grouped">
-                <div class="button is-bg is-fullwidth has-text-white" @click="action()">Continue</div>
-              </div>
-          </div>
       </div>
-      
-      <div class="column"></div>
+
+      <div class="input-group">
+        <div class="field has-text-primary">
+          Username
+          <input class="input has-text-primary" type="" placeholder="" v-model.trim="username">
+        </div>
+
+        <div class="field has-text-primary">
+          Password
+          <input class="input has-text-primary" type="password" placeholder="" v-model.trim="password">
+        </div>
+
+        <div v-if="joinUsTab" class="field has-text-primary">
+          Confirm Password
+          <input class="input has-text-primary" type="password" placeholder="" v-model.trim="confirmPassword">
+        </div>         
+        
+        <div v-if="nonmatchingPassword && joinUsTab" class="has-text-danger has-text-centered"> Passwords dont match! </div>
+        <div v-if="userExisting && joinUsTab" class="has-text-danger has-text-centered"> Username taken! </div>
+        <div v-if="invalidSignIn && !joinUsTab" class="has-text-danger has-text-centered"> Sign in failed! </div>
+
+        <div class="buttons is-grouped">
+          <div class="button is-bg is-fullwidth has-text-white" @click="action()">Continue</div>
+        </div>
+      </div>
     </div>
   </main>
 </template>

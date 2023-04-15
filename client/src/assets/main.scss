@@ -14,6 +14,16 @@
     100% {opacity: 1; transform: scale(1)}
 }
 
+.center-contents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-group {
+    width: 250px;
+}
+
 /**
     Let's use $primary as our primary color, $info as our secondary color, and $link for our 'other' color
     We can change them here later.
@@ -43,6 +53,7 @@ $family-sans-serif: "Nunito", sans-serif;
 
 .button.is-bg {
     background: linear-gradient(20deg, $info 15%, $primary 60%); 
+    width: 250px;
 }
 .button.is-bg:hover {
     background: linear-gradient(200deg, $info 15%, $primary 60%); 
