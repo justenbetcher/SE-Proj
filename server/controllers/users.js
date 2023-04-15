@@ -7,13 +7,7 @@ app
         users.addUser(req.params.username, req.params.password).then(result => res.status(200).send(result))
     })
     .patch('/:username', (req, res, next) => {
-        users.getUser(req.params.username).then(user => {
-            if (user) {
-                res.status(200).send(user)
-            } else {
-                res.status(200).send(null)
-            }  
-        })
+        users.getUser(req.params.username).then(user => res.status(200).send(user))
     })
 
 module.exports = app;
