@@ -6,7 +6,7 @@ app
         const now = new Date()
         res.send({
             year: now.getFullYear(),
-            month: now.getMonth(),
+            month: now.getMonth() + 1,
             day: now.getDate(),
             hour: now.getHours(),
             minute: now.getMinutes(),
