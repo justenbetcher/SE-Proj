@@ -41,7 +41,7 @@
           username.value = ""
           password.value = ""
           session.user = result;
-          router.push("/home")
+          router.push("/budget")
         }
       })
     }
