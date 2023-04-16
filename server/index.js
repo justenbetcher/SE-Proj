@@ -6,6 +6,7 @@ const hostname = '127.0.0.1';
 const port = process.env.PORT || 3000;
 
 const usersController = require('./controllers/users')
+const timeController = require('./controllers/time')
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -22,6 +23,7 @@ app.get('*', (req, res) => {
 })
 
 .use('/api/v1/users', usersController)
+.use('/api/v1/time', timeController)
 
 app.listen(port, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
