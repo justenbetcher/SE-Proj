@@ -1,4 +1,5 @@
 import {api} from './session';
+import type { Budget } from './budgets';
 
 export function addUser(username: string, password: string) {
     return api<boolean>(`users/${username}/${password}`, {}, 'PATCH')
@@ -18,4 +19,5 @@ export function signIn(username: string, password: string) {
 export interface User {
     username: string
     password: string
+    budgets: Budget[]
 }
