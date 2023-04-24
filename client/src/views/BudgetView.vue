@@ -1,46 +1,73 @@
 <script setup lang="ts">
-    import { reactive, ref } from 'vue';
-    import session from '@/stores/session';
-    import { getServerTime, compareTime, getWeekNum } from '@/stores/time';
-    import router from '@/router';
-    import { getLatestBudget, type Budget } from '@/stores/budgets';
+  import { ref } from 'vue';
+  import session from '@/stores/session';
+  import { getServerTime, getWeekNo} from '@/stores/time';
+  import router from '@/router';
+  import type { Budget } from '@/stores/budgets';
 
-    const serverTime = ref()
-    const latestBudget = ref<Budget>()
-    const isBudgetCurrent = ref(false)
+  const currentBudgetIndex = ref<number>(0);
+  const currentBudget = ref<Budget>();
+  const currentSpendingCategoryDropdown = ref<boolean[]>();
 
-    function initializePageInfo() {
-        getServerTime().then(now => {
-            serverTime.value = now
-            updateLatestBudget()
+   function setCurrentBudgetIndex(i: number) {
+    if (session.user && i >= 0 && i < session.user.budgets.length) {
+      currentBudgetIndex.value = i
+      currentBudget.value = session.user.budgets[i]
 
-            if (latestBudget.value)
-                isBudgetCurrent.value = getWeekNum(latestBudget.value.start) === getWeekNum(now);
-        })
-    }
-
-    function updateServerTime() {
-        getServerTime().then(result => serverTime.value = result)
-    }
-
-    function updateLatestBudget() {
-        if (session.user) {
-            latestBudget.value = getLatestBudget(session.user.budgets)
+      currentSpendingCategoryDropdown.value = [];
+      if (currentBudget) {
+        for (let j = 0; j < currentBudget.value.spending.length; j++) {
+          currentSpendingCategoryDropdown.value[j] = false;
         }
-    }
+      }
 
-    if (session.user) {
-        initializePageInfo()
-    } else {
-        router.push("/")
+
     }
+  }
+
+  if (session.user) {
+      setCurrentBudgetIndex(0)
+  } else {
+      router.push("/")
+  }
 </script>
 
 <template>
   <main>
     <div class="box fades-in">
-        <div class="box">{{ latestBudget?.start?.month }} / {{ latestBudget?.start?.day }} / {{ latestBudget?.start?.year }}</div>
-        <div class="box">{{ isBudgetCurrent }}</div>
+        Week {{ currentBudget?.weekNo }}
+
+        <div v-for="(category, i) in currentBudget?.spending" class="box">
+          <div class="level mb-0 pb-0">
+            <div class="level-left">
+              {{ category.description }}
+            </div>
+
+            <div class="level-right">
+
+            </div>
+          </div>
+
+          <div v-for="(entry, j) in category.entries">
+            <div class="level">
+            <div class="level-left">
+              &emsp;{{ entry.description }}
+            </div>
+            <div class="level-right has-text-primary">
+              {{ entry.value }}
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <div class="buttons has-addons is-centered input-group">
+          <div class="button" @click="setCurrentBudgetIndex(currentBudgetIndex + 1)">
+              <i class="fa-solid fa-chevron-left"></i>
+            </div>
+            <div class="button" @click="setCurrentBudgetIndex(currentBudgetIndex - 1)">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+        </div>
     </div>
   </main>
 </template>

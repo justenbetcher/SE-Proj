@@ -2,8 +2,9 @@
   import { ref } from 'vue';
 
   import { addUser, signIn } from "../stores/users"
-  import session from '@/stores/session';
   import router from '@/router';
+import session, { setUser } from '@/stores/session';
+import { getServerTime } from '@/stores/time';
 
   const joinUsTab = ref(false)
   const username = ref("")
@@ -34,14 +35,17 @@
         nonmatchingPassword.value = true
       }
     } else {
-      signIn(username.value, password.value).then(result => {
-        if (result === null) {
-          invalidSignIn.value = true
-        } else {
+      signIn(username.value, password.value).then(user => {
+        if (user) {
           username.value = ""
           password.value = ""
-          session.user = result;
-          router.push("/budget")
+          
+          getServerTime().then(time=> {
+                setUser(user, Number(time));
+                router.push("/budget")
+            })
+        } else {
+          invalidSignIn.value = true
         }
       })
     }

@@ -3,16 +3,7 @@ const express = require('express');
 const app = express.Router();
 app
     .patch('/', (req, res, next) => {
-        const now = new Date()
-        res.send({
-            year: now.getFullYear(),
-            month: now.getMonth() + 1,
-            day: now.getDate(),
-            hour: now.getHours(),
-            minute: now.getMinutes(),
-            second: now.getSeconds(),
-            weekday: now.getDay(),
-        })
+        res.status(200).send(new Date().valueOf().toString())
     })
 
 module.exports = app;
